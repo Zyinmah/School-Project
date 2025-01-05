@@ -1,0 +1,22 @@
+Public Class feature_facilities
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+        main_page.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+        Me.Close()
+        main_page.Show()
+    End Sub
+
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        Me.Close()
+        facilities.Show()
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+        Me.Close()
+        facilities.Show()
+    End Sub
+End Class
