@@ -1,0 +1,44 @@
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+
+Public Class classes
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Me.Close()
+        main_page.Show()
+    End Sub
+
+    Private Sub btnclear_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnlogin_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub CLASSESBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles CLASSESBindingNavigatorSaveItem.Click, CLASSESBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.CLASSESBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.DATA_TESTDataSet)
+
+    End Sub
+
+    Private Sub CLASSESBindingNavigatorSaveItem_Click_1(sender As Object, e As EventArgs) Handles CLASSESBindingNavigatorSaveItem.Click, CLASSESBindingNavigatorSaveItem.Click, CLASSESBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.CLASSESBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.DATA_TESTDataSet)
+
+    End Sub
+
+    Private Sub classes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DATA_TESTDataSet.CLASSES' table. You can move, or remove it, as needed.
+        Me.CLASSESTableAdapter.Fill(Me.DATA_TESTDataSet.CLASSES)
+
+    End Sub
+
+    Private Sub btnFilterCategory_Click(sender As Object, e As EventArgs) Handles btnFilterCategory.Click
+        CLASSESBindingSource.Filter() = "Category Like '%" & CATEGORYComboBox.Text & "%'"
+    End Sub
+
+    Private Sub btnResetFilter_Click(sender As Object, e As EventArgs) Handles btnResetFilter.Click
+        CLASSESBindingSource.RemoveFilter()
+    End Sub
+End Class
