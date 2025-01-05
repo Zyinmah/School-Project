@@ -1,0 +1,43 @@
+Public Class admin_main_menu
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Dim userRespond As String
+
+        userRespond = MessageBox.Show("Are you sure want to exit?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If userRespond = vbYes Then
+            End
+        End If
+    End Sub
+
+
+
+    Private Sub BackToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackToolStripMenuItem.Click
+        Me.Close()
+        admin_login.Show()
+    End Sub
+
+    Private Sub ManageMemberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManageMemberToolStripMenuItem.Click
+        Me.Close()
+        manage_member.Show()
+    End Sub
+
+    Private Sub EditPackagesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditPackagesToolStripMenuItem.Click
+        Me.Close()
+        manage_packages.Show()
+    End Sub
+
+
+
+    Private Sub ManageStaffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManageStaffToolStripMenuItem.Click
+        Me.Close()
+        manage_staff.Show()
+    End Sub
+
+    Private Sub EditClassesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditClassesToolStripMenuItem.Click
+        Me.Close()
+        manage_classes.Show()
+    End Sub
+
+    Private Sub admin_main_menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
