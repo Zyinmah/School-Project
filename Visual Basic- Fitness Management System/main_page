@@ -1,0 +1,48 @@
+Public Class main_page
+    Private Sub ClassesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClassesToolStripMenuItem.Click
+        Me.Hide()
+        classes.Show()
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Timer1.Enabled = True
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Label2.Text = Date.Now.ToString("dd-MM-yyyy hh:mm:ss")
+    End Sub
+
+    Private Sub FacilitiesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FacilitiesToolStripMenuItem.Click
+        Me.Hide()
+        feature_facilities.Show()
+    End Sub
+
+    Private Sub PackagesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PackagesToolStripMenuItem.Click
+        Me.Hide()
+        packages.Show()
+    End Sub
+
+    Private Sub RegisterAsMemberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegisterAsMemberToolStripMenuItem.Click
+        Me.Hide()
+        register.Show()
+    End Sub
+
+    Private Sub AdminLoginToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdminLoginToolStripMenuItem.Click
+        Me.Hide()
+        admin_login.Show()
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Dim userRespond As String
+
+        userRespond = MessageBox.Show("Are you sure want to exit?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If userRespond = vbYes Then
+            End
+        End If
+
+    End Sub
+End Class
