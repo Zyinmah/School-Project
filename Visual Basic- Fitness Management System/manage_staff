@@ -1,0 +1,54 @@
+Public Class manage_staff
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Me.Close()
+        admin_main_menu.Show()
+    End Sub
+
+
+    Private Sub STAFFBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles STAFFBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.STAFFBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.DATA_TESTDataSet)
+
+    End Sub
+
+    Private Sub manage_staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DATA_TESTDataSet.STAFF' table. You can move, or remove it, as needed.
+        Me.STAFFTableAdapter.Fill(Me.DATA_TESTDataSet.STAFF)
+
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        If btnAdd.Text = "Add" Then
+            STAFFBindingSource.AddNew()
+            btnAdd.Text = "Save"
+        Else
+            STAFFBindingSource.EndEdit()
+            TableAdapterManager.UpdateAll(DATA_TESTDataSet)
+            btnAdd.Text = "Add"
+            MessageBox.Show("Add successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        If btnEdit.Text = "Edit" Then
+            btnEdit.Text = "Save"
+        Else
+            STAFFBindingSource.EndEdit()
+            TableAdapterManager.UpdateAll(DATA_TESTDataSet)
+            btnEdit.Text = "Edit"
+            MessageBox.Show("Edit successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim userRespond As String
+
+        userRespond = MessageBox.Show("Are you sure?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If userRespond = vbYes Then
+            STAFFBindingSource.RemoveCurrent()
+            TableAdapterManager.UpdateAll(DATA_TESTDataSet)
+            MessageBox.Show("Delete successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+End Class
