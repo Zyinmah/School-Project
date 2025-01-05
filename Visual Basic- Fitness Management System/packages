@@ -1,0 +1,35 @@
+Public Class packages
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Me.Close()
+        main_page.Show()
+    End Sub
+
+    Private Sub btnclear_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnlogin_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub PACKAGESBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles PACKAGESBindingNavigatorSaveItem.Click, PACKAGESBindingNavigatorSaveItem.Click, PACKAGESBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.PACKAGESBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.DATA_TESTDataSet)
+
+    End Sub
+
+    Private Sub packages_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DATA_TESTDataSet.PACKAGES' table. You can move, or remove it, as needed.
+        Me.PACKAGESTableAdapter.Fill(Me.DATA_TESTDataSet.PACKAGES)
+
+    End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        PACKAGESBindingSource.MoveNext()
+    End Sub
+
+    Private Sub btnPrevious_Click(sender As Object, e As EventArgs) Handles btnPrevious.Click
+        PACKAGESBindingSource.MovePrevious()
+    End Sub
+End Class
