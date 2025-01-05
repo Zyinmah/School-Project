@@ -1,0 +1,29 @@
+Public Class admin_login
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Me.Close()
+        main_page.Show()
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked = False Then
+            txtpassword.PasswordChar = "*"
+        Else
+            txtpassword.PasswordChar = ""
+        End If
+    End Sub
+
+    Private Sub btnclear_Click(sender As Object, e As EventArgs) Handles btnclear.Click
+        txtusername.Clear()
+        txtpassword.Clear()
+    End Sub
+
+    Private Sub btnlogin_Click(sender As Object, e As EventArgs) Handles btnlogin.Click
+        If txtusername.Text = "ADMIN" And txtpassword.Text = "ADMIN" Then
+            MessageBox.Show("Login Success", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            admin_main_menu.Show()
+            Me.Close()
+        Else
+            MessageBox.Show("Incorrect Username and Password , please try again. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+End Class
