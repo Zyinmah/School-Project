@@ -1,0 +1,52 @@
+Public Class register
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Me.Close()
+        main_page.Show()
+    End Sub
+
+    Private Sub MEMBERBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles MEMBERBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.MEMBERBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.DATA_TESTDataSet)
+
+    End Sub
+
+    Private Sub register_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DATA_TESTDataSet.MEMBER' table. You can move, or remove it, as needed.
+        Me.MEMBERTableAdapter.Fill(Me.DATA_TESTDataSet.MEMBER)
+
+    End Sub
+
+    Private Sub btnregister_Click(sender As Object, e As EventArgs) Handles btnregister.Click
+        If btnregister.Text = "Register" Then
+            MEMBERBindingSource.AddNew()
+            btnregister.Text = "Save"
+        Else
+            If NAMETextBox.Text = Nothing Or GENDERTextBox.Text = Nothing Or DATE_OF_BIRTHTextBox.Text = Nothing Or EMAILTextBox.Text = Nothing Or MOBILETextBox.Text = Nothing Then
+                MessageBox.Show("Please enter empty details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+            If MOBILETextBox.Text.Length < 10 Then
+                MessageBox.Show("Invalid mobile number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+            MEMBERBindingSource.EndEdit()
+            TableAdapterManager.UpdateAll(DATA_TESTDataSet)
+            btnregister.Text = "Register"
+            MessageBox.Show("Register successful.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Close()
+            main_page.Show()
+        End If
+
+    End Sub
+
+    Private Sub btnclear_Click(sender As Object, e As EventArgs) Handles btnclear.Click
+        NAMETextBox.Clear()
+        GENDERTextBox.Clear()
+        DATE_OF_BIRTHTextBox.Clear()
+        MOBILETextBox.Clear()
+        EMAILTextBox.Clear()
+
+    End Sub
+End Class
